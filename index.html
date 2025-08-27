@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            background-image: url('fon.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            /* панель узкая */
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* центровка по вертикали */
+            z-index: 50;
+        }
+        
+        .fio {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 1.25rem;
+        }
+        
+        .fio .logo {
+            width: 100px;
+            /* логотип больше */
+            height: 100px;
+            max-height: 60px;
+            /* но «вписан» в панель */
+            border-radius: 50%;
+            object-fit: cover;
+            /* картинка не искажается */
+        }
+        
+        .nav {
+            display: none;
+            gap: 2rem;
+        }
+        
+        @media(min-width: 768px) {
+            .nav {
+                display: flex;
+            }
+        }
+        
+        .nav a {
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 1.15rem;
+        }
+        
+        .nav a:hover {
+            color: #fca5a5;
+        }
+        
+        body {
+            margin: 0;
+            font-family: monospace;
+            background-color: #1a1a1a;
+            position: relative;
+        }
+        
+        .hero {
+            padding-top: 7rem;
+            /* үстүңкү боштук чоңойтулат */
+            padding-bottom: 3rem;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .hero-title {
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.1;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+        }
+        
+        .highlight {
+            color: #f87171;
+        }
+        
+        .typing-effect {
+            font-family: monospace;
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.625;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+        
+        .hero-text {
+            padding-left: 20px;
+            /* отступ слева для hero текста */
+        }
+        
+        @media (min-width: 768px) {
+            .hero-text {
+                padding-left: 40px;
+                /* больше отступа на больших экранах */
+            }
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #95374f;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #803754;
+        }
+        
+        .btn-outline {
+            border: 2px solid #c50f3d;
+            color: #800020;
+            background-color: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: #800020;
+            color: white;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #1f2937;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a, #2b0b0b);
+            color: #ffffff;
+            padding: 3rem 1rem;
+            font-family: monospace;
+            box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.05);
+            border-top: 3px solid #95374f;
+            border-bottom: 3px solid #95374f;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        @media(min-width:768px) {
+            .footer-grid {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 2rem;
+            }
+        }
+        
+        .footer-about {
+            padding-left: 20px;
+            /* смещение вправо */
+        }
+        
+        .footer-about h3,
+        .footer-links h4,
+        .footer-social h4 {
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 0 5px #f87171;
+        }
+        
+        .footer-about p {
+            color: #c0c0c0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-right: 1.5rem;
+            max-width: 220px;
+            /* ограничивает ширину, текст переносится */
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #c0c0c0;
+            text-decoration: none;
+            transition: color 0.2s, transform 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: #f87171;
+            transform: translateX(3px);
+        }
+        
+        .footer-social .social-buttons button {
+            font-size: 1cm;
+            background: none;
+            border: none;
+            margin-right: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s, transform 0.2s;
+            color: #c0c0c0;
+        }
+        
+        .footer-social .social-buttons button:hover {
+            color: #f87171;
+            transform: scale(1.2);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            text-align: center;
+            color: #888;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+
+
+<div class="topbar">
+    <div class="fio">
+        <img src="lo.png" alt="Логотип" class="logo">
+        <span>Зинаш Түмөнбаева</span>
+    </div>
+    <div class="nav">
+        <a href="#home">Башкы бет</a>
+        <a href="urok.html">Сабактар</a>
+        <a href="resurse.pdf">Ресурстар</a>
+
+    </div>
+</div>
+<div id="home" class="hero">
+    <div class="hero-grid">
+        <div class="hero-text">
+            <h1 class="hero-title"> Frontend<br> <span class="highlight">Иштеп чыгуу</span> </h1>
+            <div class="typing-effect"> Заманбап веб-сайттарды түзүү </div>
+            <p class="hero-description"> HTML, CSS жана заманбап фреймворкторду үйрөнүңүз! Нөлдөн баштап кооз жана күчтүү веб-тиркемелерди жаратыңыз! </p>
+            <div class="hero-buttons">
+                <a href="https://taplink.cc/zinash" target="_blank" class="btn btn-primary">
+                    Байланыш үчүн:https://taplink.cc/zinash
+                  </a>
+
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="foto.png" alt="картинка">
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3>ЖАК колледж</h3>
+                <p>Заманбап веб-разработканы нөлдөн профессионал деңгээлге чейин үйрөнүү</p>
+            </div>
+            <div class="footer-links">
+                <h4>Ссылкалар</h4>
+                <ul>
+                    <li><a href="urok.html">Бардык сабактар</a></li>
+
+                    <li><a href="resurse.pdf">Ресурстар</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Социалдык тармактар</h4>
+                <div class="social-buttons">
+                    <button onclick="openSocial('github')">📱</button>
+                    <button onclick="openSocial('telegram')">✈️</button>
+                    <button onclick="openSocial('youtube')">📺</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ЖАК колледж. Бардык материалдар билим алуу максатында.</p>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
